@@ -66,6 +66,14 @@ public class Sala {
     public List<Pista> getPistas() {
         return pistas;
     }
+    public void getNombresPistas(){
+        for(int i = 0; i < pistas.size(); i++)
+            System.out.println(pistas.get(i).getNombre());
+    }
+    public void getDescripcionsObjetosDecoracion(){
+        for(int i = 0; i < pistas.size(); i++)
+            System.out.println(objetoDecoracion.get(i).getDescripcion());
+    }
     public void setPistas(List<Pista> pistas) {
         this.pistas = pistas;
     }

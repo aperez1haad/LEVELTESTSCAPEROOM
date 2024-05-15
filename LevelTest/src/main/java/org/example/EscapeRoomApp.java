@@ -37,7 +37,7 @@ public class EscapeRoomApp {
                     inventario.removeSala(validateString("Introduce el nombre de la sala a eliminar"));
                     break;
                     case 4:
-                        inventario.mostrarInventario();
+                    inventario.mostrarInventario();
                 case 5:
                     chivato = 0;
                     break;
@@ -52,19 +52,16 @@ public class EscapeRoomApp {
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
     }
-
     public double validateDouble(String mensaje) {
         System.out.println(mensaje);
         Scanner sc = new Scanner(System.in);
         return sc.nextDouble();
     }
-
     public String validateString(String mensaje) {
         System.out.println(mensaje);
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
-
     public NivelDificultad escogernivelDificultad() {
         System.out.println("Qué dificultad es? Pon el numero\n  1-Facil\n  2-Intermedio\n  3-Dificil");
         Scanner sc = new Scanner(System.in);
@@ -79,7 +76,6 @@ public class EscapeRoomApp {
                 return null;
         }
     }
-
     public TipoMaterial escogerTipoMaterial() {
         System.out.println("Qué material es?\n + 1-Madera\n + 2-Metal\n + 3-Plastico\n + 4-Otro");
         Scanner sc = new Scanner(System.in);
@@ -96,7 +92,6 @@ public class EscapeRoomApp {
                 return null;
         }
     }
-
     public void menuSala(int idSala) throws SalaNoExisteExcepcion {
         Scanner sc = new Scanner(System.in);
         int chivato1 = 1;
@@ -113,29 +108,29 @@ public class EscapeRoomApp {
                     " 8-Salir");
             switch (sc.nextInt()) {
                 case 1:
-                    inventario.getSala(idSala).setNombre(validateString("Introduce el nuevo nombre de la sala"));
+                    inventario.getSala(idSala-1).setNombre(validateString("Introduce el nuevo nombre de la sala"));
                     break;
                 case 2:
-                    inventario.getSala(idSala).setNivelDificultad(escogernivelDificultad());
+                    inventario.getSala(idSala-1).setNivelDificultad(escogernivelDificultad());
                     break;
                 case 3:
-                    System.out.println(inventario.getSala(idSala).getValorTotal());
+                    System.out.println(inventario.getSala(idSala-1).getValorTotal());
                     break;
                 case 4:
-                    inventario.anadirPistaASala(inventario.getSala(idSala).getNombre(), new Pista(validateDouble("Introduce el precio"), validateString("Introduce el nombre"), validateInt("Introduce el tiempo estimado"), validateString("Introduce la tematica")));
+                    inventario.anadirPistaASala(inventario.getSala(idSala-1).getNombre(), new Pista(validateDouble("Introduce el precio"), validateString("Introduce el nombre"), validateInt("Introduce el tiempo estimado"), validateString("Introduce la tematica")));
                     break;
                 case 5:
-                    System.out.println(inventario.getSala(idSala).getPistas());
+                    inventario.getSala(idSala-1).getNombresPistas();
                     String pistax = validateString("Que pista quieres quitar? Escribela");
                     inventario.quitarPistaASala(inventario.getSala(idSala).getNombre(), pistax);
                     break;
                 case 6:
-                    inventario.anadirObjetoDecoracionASala(inventario.getSala(idSala).getNombre(), new ObjetoDecoracion(validateDouble("Introduce el precio"), validateString("Introduce la descripción"), escogerTipoMaterial()));
+                    inventario.anadirObjetoDecoracionASala(inventario.getSala(idSala-1).getNombre(), new ObjetoDecoracion(validateDouble("Introduce el precio"), validateString("Introduce la descripción"), escogerTipoMaterial()));
                     break;
                 case 7:
-                    System.out.println(inventario.getSala(idSala).getObjetoDecoracion());
+                    inventario.getSala(idSala-1).getDescripcionsObjetosDecoracion();
                     String objetox = validateString("Que objeto quieres quitar? Escribelo");
-                    inventario.quitarObjetoDecoracionASala(inventario.getSala(idSala).getNombre(), objetox);
+                    inventario.quitarObjetoDecoracionASala(inventario.getSala(idSala-1).getNombre(), objetox);
                     break;
                 case 8:
                     chivato1 = 0;

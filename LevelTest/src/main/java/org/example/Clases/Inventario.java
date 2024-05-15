@@ -49,10 +49,10 @@ public class Inventario {
         }
 
     }
-    public void quitarObjetoDecoracionASala (String nombreSala, String objetoDecoracion) throws SalaNoExisteExcepcion {
+    public void quitarObjetoDecoracionASala (String nombreSala, String descripcionobjetoDecoracion) throws SalaNoExisteExcepcion {
         for (Sala sala : salas) {
             if (sala.getNombre().equalsIgnoreCase(nombreSala)) {
-                sala.getObjetoDecoracion().remove(objetoDecoracion);
+                sala.getObjetoDecoracion().remove(descripcionobjetoDecoracion);
             }
             else{
                 throw new SalaNoExisteExcepcion("La Sala con el nombre "+ nombreSala + " no existe");
@@ -68,7 +68,7 @@ public class Inventario {
     public void removeSala(String nombreSala) throws SalaNoExisteExcepcion {
         for (Sala sala : salas) {
             if (sala.getNombre().equalsIgnoreCase(nombreSala)) {
-                salas.remove(sala);
+                salas.remove(nombreSala);
             }
             else{
                 throw new SalaNoExisteExcepcion("La Sala con el nombre "+ nombreSala + " no existe");

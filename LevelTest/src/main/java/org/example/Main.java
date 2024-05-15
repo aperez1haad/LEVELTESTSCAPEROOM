@@ -9,5 +9,4 @@ public class Main {
         EscapeRoomApp escapeRoomApp = new EscapeRoomApp();
         escapeRoomApp.Menu();
     }
-
 }

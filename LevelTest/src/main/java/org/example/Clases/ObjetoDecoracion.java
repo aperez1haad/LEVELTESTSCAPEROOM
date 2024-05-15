@@ -19,7 +19,6 @@ public class ObjetoDecoracion {
     public double getPrecioConIVA(){
         return this.precio*1.21;
     }
-
     public int getId() {
         return id;
     }
